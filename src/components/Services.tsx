@@ -1,34 +1,34 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Zap, Shield, TrendingUp } from "lucide-react";
+import { User, TrendingDown, MonitorPlay } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: Zap,
-      title: "Digital Transformation",
-      description: "Modernize your operations with cutting-edge technology solutions that streamline workflows and boost productivity.",
+      icon: User,
+      title: "Personal Training",
+      description: "One-on-one sessions with certified trainers tailored to your fitness goals. Get personalized workout plans and nutrition guidance.",
     },
     {
-      icon: Shield,
-      title: "Security & Compliance",
-      description: "Protect your business with enterprise-grade security measures and ensure full compliance with industry standards.",
+      icon: TrendingDown,
+      title: "Weight Loss Program",
+      description: "Comprehensive weight loss program combining cardio, strength training, and dietary advice to help you shed pounds safely.",
     },
     {
-      icon: TrendingUp,
-      title: "Growth Strategy",
-      description: "Scale your business with data-driven strategies and expert guidance tailored to your unique market position.",
+      icon: MonitorPlay,
+      title: "Online Coaching",
+      description: "Train from anywhere with our virtual coaching. Get workout plans, video tutorials, and live check-ins with expert trainers.",
     },
   ];
 
   return (
-    <section id="services" className="py-20 px-4 bg-muted/50">
+    <section id="services" className="py-20 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Our Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive solutions designed to meet your business needs and exceed expectations.
+            Choose from our range of professional fitness services designed to help you reach your goals.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ const Services = () => {
                 className="border-border hover:border-primary/50 transition-all hover:shadow-lg group"
               >
                 <CardContent className="p-6 space-y-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Icon className="text-primary-foreground" size={28} />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">

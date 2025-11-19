@@ -7,16 +7,18 @@ import { z } from "zod";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
+  mobile: z.string().trim().min(10, "Please enter a valid mobile number").max(15, "Mobile number is too long"),
   email: z.string().trim().email("Please enter a valid email address").max(255, "Email is too long"),
-  message: z.string().trim().min(10, "Message must be at least 10 characters").max(1000, "Message is too long"),
+  goal: z.string().trim().min(10, "Please describe your fitness goal (min 10 characters)").max(500, "Goal description is too long"),
 });
 
 const ContactForm = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
+    mobile: "",
     email: "",
-    message: "",
+    goal: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,12 +46,12 @@ const ContactForm = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
+        title: "Booking request sent!",
+        description: "We'll contact you within 24 hours to schedule your free trial.",
       });
       
       // Reset form
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", mobile: "", email: "", goal: "" });
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors: Record<string, string> = {};
@@ -76,17 +78,17 @@ const ContactForm = () => {
       <div className="container mx-auto max-w-2xl">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Get In Touch
+            Book Your Free Trial
           </h2>
           <p className="text-lg text-muted-foreground">
-            Ready to transform your business? Let's start a conversation.
+            Ready to start your fitness journey? Fill out the form below and we'll get back to you soon.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium text-foreground">
-              Name *
+              Full Name *
             </label>
             <Input
               id="name"
@@ -103,8 +105,26 @@ const ContactForm = () => {
           </div>
 
           <div className="space-y-2">
+            <label htmlFor="mobile" className="text-sm font-medium text-foreground">
+              Mobile Number *
+            </label>
+            <Input
+              id="mobile"
+              name="mobile"
+              type="tel"
+              value={formData.mobile}
+              onChange={handleChange}
+              placeholder="+1234567890"
+              className={errors.mobile ? "border-destructive" : ""}
+            />
+            {errors.mobile && (
+              <p className="text-sm text-destructive">{errors.mobile}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium text-foreground">
-              Email *
+              Email Address *
             </label>
             <Input
               id="email"
@@ -121,25 +141,25 @@ const ContactForm = () => {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium text-foreground">
-              Message *
+            <label htmlFor="goal" className="text-sm font-medium text-foreground">
+              Your Fitness Goal *
             </label>
             <Textarea
-              id="message"
-              name="message"
-              value={formData.message}
+              id="goal"
+              name="goal"
+              value={formData.goal}
               onChange={handleChange}
-              placeholder="Tell us about your project..."
+              placeholder="Tell us about your fitness goals, current fitness level, and what you want to achieve..."
               rows={6}
-              className={errors.message ? "border-destructive" : ""}
+              className={errors.goal ? "border-destructive" : ""}
             />
-            {errors.message && (
-              <p className="text-sm text-destructive">{errors.message}</p>
+            {errors.goal && (
+              <p className="text-sm text-destructive">{errors.goal}</p>
             )}
           </div>
 
           <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-            {isSubmitting ? "Sending..." : "Send Message"}
+            {isSubmitting ? "Sending..." : "Book Free Trial"}
           </Button>
         </form>
       </div>

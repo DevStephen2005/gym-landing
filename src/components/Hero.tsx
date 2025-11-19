@@ -22,23 +22,23 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background">
+    <section id="hero" className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-secondary via-secondary/90 to-secondary">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Gradient Orbs */}
         <div 
-          className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse-slow"
+          className="absolute top-20 left-10 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-pulse-slow"
           style={{ transform: `translateY(${scrollY * 0.3}px)` }}
         />
         <div 
-          className="absolute top-40 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse-slow"
+          className="absolute top-40 right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow"
           style={{ 
             transform: `translateY(${scrollY * 0.2}px)`,
             animationDelay: "1s"
           }}
         />
         <div 
-          className="absolute bottom-20 left-1/3 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse-slow"
+          className="absolute bottom-20 left-1/3 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse-slow"
           style={{ 
             transform: `translateY(${scrollY * 0.25}px)`,
             animationDelay: "2s"
@@ -51,14 +51,14 @@ const Hero = () => {
           style={{ transform: `translateY(${scrollY * 0.15}px) rotate(45deg)` }}
         />
         <div 
-          className="absolute top-1/3 right-1/4 w-16 h-16 border-2 border-secondary/30 rounded-full animate-float-slow"
+          className="absolute top-1/3 right-1/4 w-16 h-16 border-2 border-primary/30 rounded-full animate-float-slow"
           style={{ 
             transform: `translateY(${scrollY * 0.1}px)`,
             animationDelay: "0.5s"
           }}
         />
         <div 
-          className="absolute bottom-1/3 right-1/3 w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg animate-float"
+          className="absolute bottom-1/3 right-1/3 w-12 h-12 bg-gradient-to-br from-primary/30 to-primary-dark/30 rounded-lg animate-float"
           style={{ 
             transform: `translateY(${scrollY * 0.2}px) rotate(-15deg)`,
             animationDelay: "1.5s"
@@ -76,8 +76,8 @@ const Hero = () => {
         <div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                            linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px),
+                            linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)`,
             backgroundSize: "50px 50px",
             transform: `translateY(${scrollY * 0.05}px)`
           }}
@@ -91,15 +91,15 @@ const Hero = () => {
       >
         <div className="text-center space-y-8">
           <div className="space-y-4 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-              Transform Your Business
-              <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient">
-                With Expert Solutions
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight">
+              Transform Your Body,
+              <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
+                Elevate Your Life
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              We deliver cutting-edge services that drive growth, enhance efficiency, 
-              and help your business thrive in the digital age.
+            <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto">
+              Join FitPro Gym and achieve your fitness goals with expert trainers, 
+              personalized programs, and a supportive community.
             </p>
           </div>
 
@@ -107,39 +107,40 @@ const Hero = () => {
             <Button 
               size="lg" 
               onClick={scrollToContact}
-              className="group shadow-lg hover:shadow-xl transition-all"
+              className="group shadow-lg hover:shadow-xl transition-all font-semibold text-lg"
             >
-              Get Started Today
+              Book Free Trial
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Button>
             <Button 
               size="lg" 
               variant="outline"
+              className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-secondary font-semibold"
               onClick={() => {
                 const element = document.getElementById("services");
                 if (element) element.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Learn More
+              View Services
             </Button>
           </div>
 
           <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">500+</div>
-              <div className="text-sm text-muted-foreground">Happy Clients</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">2000+</div>
+              <div className="text-sm text-primary-foreground/80">Members</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">98%</div>
-              <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">50+</div>
+              <div className="text-sm text-primary-foreground/80">Expert Trainers</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">10+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">15+</div>
+              <div className="text-sm text-primary-foreground/80">Years Experience</div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl md:text-4xl font-bold text-primary">24/7</div>
-              <div className="text-sm text-muted-foreground">Support</div>
+              <div className="text-sm text-primary-foreground/80">Access</div>
             </div>
           </div>
         </div>
