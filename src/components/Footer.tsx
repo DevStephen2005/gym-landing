@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, Phone, MapPin, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,31 +10,37 @@ const Footer = () => {
     }
   };
 
+  const handleWhatsApp = () => {
+    const phoneNumber = "1234567890";
+    const message = encodeURIComponent("Hi, I'm interested in FitPro Gym membership. Can you provide more information?");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-secondary border-t border-border/20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">BS</span>
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-xl">FP</span>
               </div>
-              <span className="text-xl font-bold text-foreground">BizServe</span>
+              <span className="text-xl font-bold text-primary-foreground">FitPro Gym</span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Empowering businesses with innovative solutions and expert guidance.
+            <p className="text-sm text-primary-foreground/70">
+              Your partner in achieving fitness excellence. Transform your body, transform your life.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Quick Links</h3>
+            <h3 className="font-semibold text-primary-foreground">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => scrollToSection("services")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-primary-foreground/70 hover:text-primary transition-colors"
                 >
                   Services
                 </button>
@@ -42,82 +48,102 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("pricing")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-primary-foreground/70 hover:text-primary transition-colors"
                 >
                   Pricing
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("testimonials")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => scrollToSection("transformations")}
+                  className="text-sm text-primary-foreground/70 hover:text-primary transition-colors"
                 >
-                  Testimonials
+                  Transformations
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="text-sm text-primary-foreground/70 hover:text-primary transition-colors"
+                >
+                  Contact
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Company</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  About Us
+            <h3 className="font-semibold text-primary-foreground">Contact Us</h3>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
+                <Phone size={16} className="text-primary" />
+                <a href="tel:+1234567890" className="hover:text-primary transition-colors">
+                  +1 (234) 567-890
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Careers
-                </a>
+              <li className="flex items-start gap-2 text-sm text-primary-foreground/70">
+                <MapPin size={16} className="text-primary mt-1 flex-shrink-0" />
+                <span>123 Fitness Street, Gym District, City 12345</span>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Privacy Policy
-                </a>
+                <button
+                  onClick={handleWhatsApp}
+                  className="flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary transition-colors"
+                >
+                  <MessageCircle size={16} className="text-primary" />
+                  WhatsApp Us
+                </button>
               </li>
             </ul>
           </div>
 
           {/* Social */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Follow Us</h3>
-            <div className="flex gap-4">
+            <h3 className="font-semibold text-primary-foreground">Follow Us</h3>
+            <div className="flex gap-3">
               <a
-                href="#"
-                className="w-10 h-10 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center text-primary-foreground/70"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center text-primary-foreground/70"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center text-primary-foreground/70"
                 aria-label="Twitter"
               >
                 <Twitter size={20} />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-                aria-label="LinkedIn"
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center text-primary-foreground/70"
+                aria-label="YouTube"
               >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
+                <Youtube size={20} />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© {currentYear} BizServe. All rights reserved.</p>
+        <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center text-sm text-primary-foreground/60">
+          <p>© {currentYear} FitPro Gym. All rights reserved.</p>
         </div>
       </div>
     </footer>

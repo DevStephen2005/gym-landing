@@ -6,33 +6,50 @@ const Pricing = () => {
   const plans = [
     {
       name: "Basic",
-      price: "$999",
+      price: "$49",
       period: "/month",
-      description: "Perfect for small businesses getting started",
+      description: "Perfect for beginners starting their fitness journey",
       features: [
-        "Up to 5 team members",
-        "Basic analytics dashboard",
-        "Email support",
-        "Monthly strategy sessions",
-        "Standard security features",
+        "Gym access (6am-10pm)",
+        "Basic equipment access",
+        "Locker room facilities",
+        "2 group classes per week",
+        "Mobile app access",
       ],
       popular: false,
     },
     {
-      name: "Premium",
-      price: "$2,499",
+      name: "Standard",
+      price: "$89",
       period: "/month",
-      description: "Ideal for growing businesses that need more",
+      description: "Most popular choice for serious fitness enthusiasts",
       features: [
-        "Unlimited team members",
-        "Advanced analytics & reporting",
-        "Priority 24/7 support",
-        "Weekly strategy sessions",
-        "Enterprise security suite",
-        "Custom integrations",
-        "Dedicated account manager",
+        "24/7 gym access",
+        "All equipment access",
+        "Unlimited group classes",
+        "Free guest passes (2/month)",
+        "Nutrition consultation",
+        "Personal training (1 session/month)",
+        "Mobile app + meal plans",
       ],
       popular: true,
+    },
+    {
+      name: "Premium",
+      price: "$149",
+      period: "/month",
+      description: "Ultimate package for maximum results",
+      features: [
+        "Everything in Standard",
+        "Personal training (4 sessions/month)",
+        "Customized workout plans",
+        "Body composition analysis",
+        "Priority class booking",
+        "Spa & sauna access",
+        "Free supplements",
+        "Online coaching access",
+      ],
+      popular: false,
     },
   ];
 
@@ -44,28 +61,28 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 px-4 bg-muted/50">
+    <section id="pricing" className="py-20 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Simple, Transparent Pricing
+            Membership Plans
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the plan that fits your business needs. No hidden fees, no surprises.
+            Choose the plan that fits your fitness goals. All plans include access to our state-of-the-art facilities.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <Card 
               key={index} 
               className={`relative border-border hover:shadow-lg transition-all ${
-                plan.popular ? "border-primary shadow-md" : ""
+                plan.popular ? "border-primary shadow-md md:scale-105" : ""
               }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-primary to-secondary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-gradient-to-r from-primary to-primary-dark text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                     Most Popular
                   </span>
                 </div>
