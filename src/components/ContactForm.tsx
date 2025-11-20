@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
@@ -42,8 +43,20 @@ const ContactForm = () => {
       
       setIsSubmitting(true);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        mobile: formData.mobile,
+        goal: formData.goal,
+      };
+
+      await emailjs.send(
+        'service_5zpjmmq',
+        'template_f00lj4p',
+        templateParams,
+        'eca_Lx9WHdjW0wQqV'
+      );
       
       toast({
         title: "Booking request sent!",
