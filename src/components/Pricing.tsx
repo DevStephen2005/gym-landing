@@ -6,7 +6,7 @@ const Pricing = () => {
   const plans = [
     {
       name: "Basic",
-      price: "₹1,999",
+      price: "₹299",
       period: "/month",
       description: "Perfect for beginners starting their fitness journey",
       features: [
@@ -20,7 +20,7 @@ const Pricing = () => {
     },
     {
       name: "Standard",
-      price: "₹3,499",
+      price: "₹499",
       period: "/month",
       description: "Most popular choice for serious fitness enthusiasts",
       features: [
@@ -36,7 +36,7 @@ const Pricing = () => {
     },
     {
       name: "Premium",
-      price: "₹5,999",
+      price: "₹999",
       period: "/month",
       description: "Ultimate package for maximum results",
       features: [
